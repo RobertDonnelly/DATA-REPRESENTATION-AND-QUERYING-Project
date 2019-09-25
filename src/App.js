@@ -1,26 +1,42 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+//import components
+import Footer from './components/footer.js';
+import Header from './components/header.js';
+import Content from './components/content.js';
+//import bootstrap
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Button from 'react-bootstrap/Button';
+import Navbar from 'react-bootstrap/Navbar';
+import Nav from 'react-bootstrap/Nav';
+import { Switch,Route,BrowserRouter } from 'react-router-dom'    
 
-function App() {
+
+
+class App extends React.Component {
+  render(){
   return (
+    <BrowserRouter>
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar bg="primary" variant="dark">
+    <Nav className="mr-auto">
+      <Nav.Link href="/">Header</Nav.Link>
+      <Nav.Link href="/read">Read</Nav.Link>
+      <Nav.Link href="/create">Create</Nav.Link>
+    </Nav>
+</Navbar>
+
+<Switch>
+  <Route exact path="/" component={Header}/>
+  <Route path="/create" component={Footer}/>
+  <Route path="/read" component={Content}/>
+</Switch>
+
     </div>
+    </BrowserRouter>
   );
+}
 }
 
 export default App;
