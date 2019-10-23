@@ -1,5 +1,5 @@
 import React from 'react';
-
+import axios from 'axios';
 class Create extends React.Component {
 
   constructor(props) {
@@ -27,10 +27,27 @@ class Create extends React.Component {
 
 
   handleSubmit(e) {
+    
     alert('Movie Title: ' + this.state.Title + 
                ', Year: ' + this.state.Year + 
               ', Poster:' + this.state.Poster);
     e.preventDefault();
+
+    const newMovie = {
+      title:this.state.Title,
+      year:this.state.Year,
+      poster:this.state.Poster
+    }
+
+    axios.post('http://localhost:4000/api/movies',newMovie)
+    .then()
+    .catch();
+
+    this.setState({
+      Title:'',
+      Year:'',
+      Poster:''
+    });
   }
 
   render(){
