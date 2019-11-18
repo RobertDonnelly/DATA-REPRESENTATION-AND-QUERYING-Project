@@ -3,90 +3,154 @@ import axios from 'axios';
 
 class Create extends React.Component {
 
+  //album title
+  //artist
+  //year
+  //genre
+  //coverphoto
+  //publisher
+
   constructor(props) {
     super(props);
     this.state = {Title: '',
+                  Artist:'',
                   Year:'',
-                  Poster:''};
+                  Genre:'',
+                  Cover:'',
+                  Publisher:''};
 
-    this.handleChangeMovieTitle = this.handleChangeMovieTitle.bind(this);
-    this.handleChangeMovieYear = this.handleChangeMovieYear.bind(this);
-    this.handleChangeMoviePoster = this.handleChangeMoviePoster.bind(this);
+    this.handleChangeAlbumTitle = this.handleChangeAlbumTitle.bind(this);
+    this.handleChangeAlbumArtist = this.handleChangeAlbumArtist.bind(this);
+    this.handleChangeAlbumYear = this.handleChangeAlbumYear.bind(this);
+    this.handleChangeAlbumGenre = this.handleChangeAlbumGenre.bind(this);
+    this.handleChangeAlbumCover = this.handleChangeAlbumCover.bind(this);
+    this.handleChangeAlbumPublisher = this.handleChangeAlbumPublisher.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
   
-  handleChangeMovieTitle(e) {
+  handleChangeAlbumTitle(e) {
     this.setState({Title: e.target.value});
   }
-  handleChangeMovieYear(e) {
+  handleChangeAlbumArtist(e) {
+    this.setState({Artist: e.target.value});
+  }
+  handleChangeAlbumYear(e) {
     this.setState({Year: e.target.value});
   }
-
-  handleChangeMoviePoster(e) {
-    this.setState({Poster: e.target.value});
+  handleChangeAlbumGenre(e) {
+    this.setState({Genre: e.target.value});
   }
-
+  handleChangeAlbumCover(e) {
+    this.setState({Cover: e.target.value});
+  }
+  handleChangeAlbumPublisher(e) {
+    this.setState({Publisher: e.target.value});
+  }
 
   handleSubmit(e) {
     
-    alert('Movie Title: ' + this.state.Title + 
-               ', Year: ' + this.state.Year + 
-              ', Poster:' + this.state.Poster);
+    alert('Album Title: ' + this.state.Title + 
+              ', Artist: ' + this.state.Artist +
+              ', Year: ' + this.state.Year +
+              ', Genre: ' + this.state.Genre +
+              ', Cover:' + this.state.Cover +
+              ', Publisher:' + this.state.Publisher);
+
     e.preventDefault();
 
-    const newMovie = {
+    const newAlbum = {
       title:this.state.Title,
+      artist:this.state.Artist,
       year:this.state.Year,
-      poster:this.state.Poster
+      genre:this.state.Genre,
+      cover:this.state.Cover,
+      publisher:this.state.Publisher
     }
 
-    axios.post('http://localhost:4000/api/movies',newMovie)
+    axios.post('http://localhost:4000/api/albums',newAlbum)
     .then()
     .catch();
 
     this.setState({
       Title:'',
+      Artist:'',
       Year:'',
-      Poster:''
+      Genre:'',
+      Cover:'',
+      Publisher:''
     });
   }
 
   render(){
   return (
     <div>
-     <h1>Hello from Create Component</h1>
+     <h1>Add Album to database</h1>
+     <h3>Please enter the details of the album you wish to add to the mongoDB database</h3>
      <form onSubmit={this.handleSubmit}>
        
        <div className="form-group">
         <label>
-          Movie Title:
+          Album Title:
           <input 
           type="text" 
           value={this.state.Title} 
           className="form-control"
-          onChange={this.handleChangeMovieTitle} />
+          onChange={this.handleChangeAlbumTitle} />
+        </label>
+        </div>
+
+        <div className="form-group">
+        <label>
+          Album Artist:
+          <input 
+          type="text" 
+          value={this.state.Artist} 
+          className="form-control"
+          onChange={this.handleChangeAlbumArtist} />
         </label>
         </div>
      
         <div className="form-group">
         <label>
-          Movie Year:
+          Album Year:
           <input 
           type="text" 
           value={this.state.Year} 
           className="form-control"
-          onChange={this.handleChangeMovieYear} />
+          onChange={this.handleChangeAlbumYear} />
+        </label>
+        </div>
+
+        <div className="form-group">
+        <label>
+          Album Genre:
+          <input 
+          type="text" 
+          value={this.state.Genre} 
+          className="form-control"
+          onChange={this.handleChangeAlbumGenre} />
         </label>
         </div>
         
         <div className='form-group'>
-          <label>Movie Poster url:</label>
+          <label>Album Cover Image url:</label>
           <textarea 
           rows ="3"
           className = 'form-control'
-          value={this.state.Poster}
-          onChange={this.handleChangeMoviePoster}>
+          value={this.state.Cover}
+          onChange={this.handleChangeAlbumCover}>
           </textarea>
+        </div>
+
+        <div className="form-group">
+        <label>
+          Album Publisher:
+          <input 
+          type="text" 
+          value={this.state.Publisher} 
+          className="form-control"
+          onChange={this.handleChangeAlbumPublisher} />
+        </label>
         </div>
 
         <div>

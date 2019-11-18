@@ -1,16 +1,17 @@
 import React from 'react';
-import Movies from './movies';
+import Albums from './albums';
+import Card from 'react-bootstrap/Card';
 import axios from 'axios';
 
 class Read extends React.Component {
 
   state = {
-    movies: [ ]
+    albums: [ ]
   };
   componentDidMount() {
-    axios.get('http://localhost:4000/api/movies')
+    axios.get('http://localhost:4000/api/albums')
     .then((response)=>{
-      this.setState({movies: response.data.movies});
+      this.setState({albums: response.data.albums});
     })
     .catch((error)=>{
       console.log(error);
@@ -19,11 +20,15 @@ class Read extends React.Component {
   render(){
   return (
     <div>
-     <h1>Hello from Read Component</h1>
-     <Movies myMovies={this.state.movies}></Movies>
+    <Card  border="secondary" bg="dark" text="primary">
+      <Card.Header>
+        <h1>Hello</h1>
+      </Card.Header>
+    </Card>               
+     <Albums myAlbums={this.state.albums}></Albums>
     </div>
   );
 }
-}
+} 
 
 export default Read;
