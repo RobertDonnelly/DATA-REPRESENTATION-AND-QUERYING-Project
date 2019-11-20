@@ -5,7 +5,7 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
-const mongoDB= 'mongodb+srv://admin:admin@lab8-0kmcp.mongodb.net/test?retryWrites=true&w=majority';
+const mongoDB= 'mongodb+srv://admin:admin@lab8-0kmcp.mongodb.net/Albums?retryWrites=true&w=majority';
 mongoose.connect(mongoDB, {useNewUrlParser:true});
 
 const cors = require('cors');

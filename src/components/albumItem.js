@@ -3,6 +3,7 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import Image from 'react-bootstrap/Image';
 
 export class AlbumItem extends React.Component {
     constructor() {
@@ -12,8 +13,8 @@ export class AlbumItem extends React.Component {
     DeleteAlbum(e) {
         console.log("Delete button clicked");
         axios.delete('http://localhost:4000/api/albums/' + this.props.album._id)
-            .then()
-            .catch();
+        .then(window.location.reload())//refresh page after deleting
+        .catch();
     }
     render() {
         return (<div>
@@ -30,16 +31,16 @@ export class AlbumItem extends React.Component {
                     <p>
                        Genre: {this.props.album.genre}
                     </p>
-                        <footer className="blockquote-footer">
-                            <img height="300" width="300" src={this.props.album.cover}></img>
-                        </footer>
+                       <img height="300" width="300" src={this.props.album.cover}></img>
+                     <Image src={this.props.album.cover} roundedCircle height="400" width="400"></Image>
+
                     <p>
                      Publisher: {this.props.album.publisher}
                     </p>    
                     </blockquote>
                 </Card.Body>
-                <Button variant="danger" onClick={this.DeleteAlbum} size="sm">Delete</Button>
-                <Link to={"/edit/" + this.props.album._id} className="btn btn-primary">Edit</Link>
+                <Button variant="dark" variant="outline-danger" onClick={this.DeleteAlbum}>Delete</Button>
+                <Link to={"/edit/" + this.props.album._id} className="btn btn-outline-primary">Edit</Link>
             </Card>
         </div>);
     }

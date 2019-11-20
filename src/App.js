@@ -24,16 +24,16 @@ class App extends React.Component {
     <div className="App">
       <Navbar bg="dark" variant="success">
     <Nav className="mr-auto">
-      <Nav.Link href="/">Header</Nav.Link>
-      <Nav.Link href="/read">Read</Nav.Link>
-      <Nav.Link href="/create">Create</Nav.Link>
+      <Nav.Link href="/">Home</Nav.Link>
+      <Nav.Link href="/albums">Albums</Nav.Link>
+      <Nav.Link href="/add">Add Albums</Nav.Link>
     </Nav>
 </Navbar>
 
 <Switch>
   <Route exact path="/" component={Content}/>
-  <Route path="/create" component={Create}/>
-  <Route path="/read" component={Read}/>
+  <Route path="/add" component={Create}/>
+  <Route path="/albums" component={Read}/>
   <Route path="/edit/:id" component={Edit}/>
 </Switch>
 

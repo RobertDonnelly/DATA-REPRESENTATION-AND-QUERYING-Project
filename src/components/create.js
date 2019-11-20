@@ -1,5 +1,9 @@
 import React from 'react';
 import axios from 'axios';
+import { watchFile } from 'fs';
+import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
+
 
 class Create extends React.Component {
 
@@ -48,14 +52,7 @@ class Create extends React.Component {
   }
 
   handleSubmit(e) {
-    
-    alert('Album Title: ' + this.state.Title + 
-              ', Artist: ' + this.state.Artist +
-              ', Year: ' + this.state.Year +
-              ', Genre: ' + this.state.Genre +
-              ', Cover:' + this.state.Cover +
-              ', Publisher:' + this.state.Publisher);
-
+  
     e.preventDefault();
 
     const newAlbum = {
@@ -65,6 +62,7 @@ class Create extends React.Component {
       genre:this.state.Genre,
       cover:this.state.Cover,
       publisher:this.state.Publisher
+
     }
 
     axios.post('http://localhost:4000/api/albums',newAlbum)
@@ -79,10 +77,13 @@ class Create extends React.Component {
       Cover:'',
       Publisher:''
     });
+    this.props.history.push('/albums')
   }
 
   render(){
   return (
+    <Card border="secondary" bg="dark" text="white">
+
     <div>
      <h1>Add Album to database</h1>
      <h3>Please enter the details of the album you wish to add to the mongoDB database</h3>
@@ -154,11 +155,13 @@ class Create extends React.Component {
         </div>
 
         <div>
-        <input type="submit" value="Submit" />
+        <Button type="submit" variant="outline-primary" value="Submit">Submit</Button>
+        <br></br>
         </div>
 
       </form>
     </div>
+    </Card>
   );
  }
 }

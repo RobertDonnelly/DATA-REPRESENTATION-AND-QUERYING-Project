@@ -1,13 +1,17 @@
 import React from 'react';
 import '../App.css';
-
+import Card from 'react-bootstrap/Card';
 
 class Content extends React.Component {
-  render(){
+ 
+ render(){
   return (
-    <div className="App">
-     <h1> Hello World</h1>
-    <h2></h2>
+    <div className="App" style={{backgroundColor: "lightblue"}}>
+     <Card  border="secondary" bg="dark" text="primary">
+      <Card.Header>
+        <h1>Hello</h1>
+      </Card.Header>
+    </Card> 
     </div>
   );
 }
