@@ -12,17 +12,22 @@ class Edit extends React.Component{
     super(props);
     this.state = {Title: '',
                   Artist:'',
+                  ArtistPhoto:'',
                   Year:'',
                   Genre:'',
                   Cover:'',
-                  Publisher:''};
+                  Publisher:'',
+                  Play:'',
+                };
 
     this.handleChangeAlbumTitle = this.handleChangeAlbumTitle.bind(this);
     this.handleChangeAlbumArtist = this.handleChangeAlbumArtist.bind(this);
+    this.handleChangeAlbumArtistPhoto = this.handleChangeAlbumArtistPhoto.bind(this);
     this.handleChangeAlbumYear = this.handleChangeAlbumYear.bind(this);
     this.handleChangeAlbumGenre = this.handleChangeAlbumGenre.bind(this);
     this.handleChangeAlbumCover = this.handleChangeAlbumCover.bind(this);
     this.handleChangeAlbumPublisher = this.handleChangeAlbumPublisher.bind(this);
+    this.handleChangeAlbumPlay = this.handleChangeAlbumPlay.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
   
@@ -31,6 +36,9 @@ class Edit extends React.Component{
   }
   handleChangeAlbumArtist(e) {
     this.setState({Artist: e.target.value});
+  }
+  handleChangeAlbumArtistPhoto(e) {
+    this.setState({ArtistPhoto: e.target.value});
   }
   handleChangeAlbumYear(e) {
     this.setState({Year: e.target.value});
@@ -44,18 +52,23 @@ class Edit extends React.Component{
   handleChangeAlbumPublisher(e) {
     this.setState({Publisher: e.target.value});
   }
+  handleChangeAlbumPlay(e) {
+    this.setState({Play: e.target.value});
+  }
 
   handleSubmit(e) {
-
+  
     e.preventDefault();
 
     const newAlbum = {
       title:this.state.Title,
       artist:this.state.Artist,
+      artistPhoto:this.state.ArtistPhoto,
       year:this.state.Year,
       genre:this.state.Genre,
       cover:this.state.Cover,
-      publisher:this.state.Publisher
+      publisher:this.state.Publisher,
+      play:this.state.Play
     }
         
         axios.put('http://localhost:4000/api/albums/'+this.state._id,newAlbum)
@@ -65,10 +78,12 @@ class Edit extends React.Component{
         this.setState({
           Title:'',
           Artist:'',
+          ArtistPhoto:'',
           Year:'',
           Genre:'',
           Cover:'',
-          Publisher:''
+          Publisher:'',
+          Play:''
         });
         this.props.history.push('/albums')
     }
@@ -80,10 +95,12 @@ class Edit extends React.Component{
             _id:response.data._id,
             Title:response.data.title,
             Artist:response.data.artist,
+            ArtistPhoto:response.data.artistPhoto,
             Year:response.data.year,
             Genre:response.data.genre,
             Cover:response.data.cover,
-            Publisher:response.data.publisher
+            Publisher:response.data.publisher,
+            Play:response.data.play
         });
     })
     .catch();
@@ -118,7 +135,27 @@ class Edit extends React.Component{
           onChange={this.handleChangeAlbumArtist} />
         </label>
         </div>
-     
+
+        <div className='form-group'>
+          <label>Album Cover Image url:</label>
+          <textarea 
+          rows ="3"
+          className = 'form-control'
+          value={this.state.Cover}
+          onChange={this.handleChangeAlbumCover}>
+          </textarea>
+        </div>
+
+        <div className='form-group'>
+          <label>Artist Image url:</label>
+          <textarea 
+          rows ="2"
+          className = 'form-control'
+          value={this.state.ArtistPhoto}
+          onChange={this.handleChangeAlbumArtistPhoto}>
+          </textarea>
+        </div>
+
         <div className="form-group">
         <label>
           Album Year:
@@ -140,16 +177,6 @@ class Edit extends React.Component{
           onChange={this.handleChangeAlbumGenre} />
         </label>
         </div>
-        
-        <div className='form-group'>
-          <label>Album Cover Image url:</label>
-          <textarea 
-          rows ="3"
-          className = 'form-control'
-          value={this.state.Cover}
-          onChange={this.handleChangeAlbumCover}>
-          </textarea>
-        </div>
 
         <div className="form-group">
         <label>
@@ -160,6 +187,16 @@ class Edit extends React.Component{
           className="form-control"
           onChange={this.handleChangeAlbumPublisher} />
         </label>
+        </div>
+
+        <div className='form-group'>
+          <label>Album Spotify/AppleMusic url:</label>
+          <textarea 
+          rows ="2"
+          className = 'form-control'
+          value={this.state.Play}
+          onChange={this.handleChangeAlbumPlay}>
+          </textarea>
         </div>
 
         <div>

@@ -9,6 +9,7 @@ class Read extends React.Component {
     albums: [ ]
   };
   componentDidMount() {
+    
     axios.get('http://localhost:4000/api/albums')
     .then((response)=>{
       this.setState({albums: response.data.albums});
@@ -20,7 +21,7 @@ class Read extends React.Component {
   render(){
   return (
     <div>
-    <Card  border="secondary" bg="dark" text="primary">
+    <Card  border="secondary" bg="dark" text="success">
       <Card.Header>
         <h1>Hello</h1>
       </Card.Header>

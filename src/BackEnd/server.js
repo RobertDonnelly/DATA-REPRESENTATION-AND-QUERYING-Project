@@ -32,10 +32,12 @@ const Schema = mongoose.Schema;
 const albumSchema = new Schema({
     title:String,
     artist:String,
+    artistPhoto:String,
     year:String,
     genre:String,
     cover:String,
-    publisher:String
+    publisher:String,
+    play:String
 })
 
 const AlbumModel = mongoose.model('album', albumSchema);
@@ -52,18 +54,22 @@ app.post('/api/albums',(req,res)=>{
     console.log(req.body);
     console.log(req.body.title);
     console.log(req.body.artist);
+    console.log(req.body.artistPhoto);
     console.log(req.body.year);
     console.log(req.body.genre);
     console.log(req.body.cover);
     console.log(req.body.publisher);
+    console.log(req.body.play);
 
     AlbumModel.create({
         title:req.body.title,
         artist:req.body.artist,
+        artistPhoto:req.body.artistPhoto,
         year:req.body.year,
         genre:req.body.genre,
         cover:req.body.cover,
-        publisher:req.body.publisher
+        publisher:req.body.publisher,
+        play:req.body.play
     });
 
     

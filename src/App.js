@@ -21,9 +21,9 @@ class App extends React.Component {
   render(){
   return (
     <BrowserRouter>
-    <div className="App">
-      <Navbar bg="dark" variant="success">
-    <Nav className="mr-auto">
+    <div className="App" variant="outline-success">
+      <Navbar bg="success" variant="light">
+    <Nav  bg="outline-success" variant="outline-success">
       <Nav.Link href="/">Home</Nav.Link>
       <Nav.Link href="/albums">Albums</Nav.Link>
       <Nav.Link href="/add">Add Albums</Nav.Link>
