@@ -3,7 +3,7 @@ import axios from 'axios';
 import { isValidES3Identifier } from '@babel/types';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
-
+import {Redirect} from 'react-router-dom';
 
 
 
@@ -85,17 +85,21 @@ class Edit extends React.Component{
           Publisher:'',
           Play:''
         });
+        
+        //this will redirect me to the read component after submit is clicked
         this.props.history.push('/albums')
-    }
+        return  <Redirect  to="/albums" />
+      }
 
     componentDidMount(){
+    alert(this.props.match.params.id);
     axios.get('http://localhost:4000/api/albums/'+this.props.match.params.id)
     .then((response)=>{
         this.setState({
             _id:response.data._id,
             Title:response.data.title,
-            Artist:response.data.artist,
             ArtistPhoto:response.data.artistPhoto,
+            Artist:response.data.artist,
             Year:response.data.year,
             Genre:response.data.genre,
             Cover:response.data.cover,
@@ -111,7 +115,7 @@ class Edit extends React.Component{
           <Card border="secondary" bg="dark" text="white">
 
             <div>
-                <h1>Hello from edit Component </h1>
+                <h1>Please edit the information about this album and click submit when finished </h1>
                 <form onSubmit={this.handleSubmit} >
        
                 <div className="form-group">
@@ -189,6 +193,7 @@ class Edit extends React.Component{
         </label>
         </div>
 
+          {/*this input in going to be a url link to play the album */}
         <div className='form-group'>
           <label>Album Spotify/AppleMusic url:</label>
           <textarea 
@@ -201,10 +206,11 @@ class Edit extends React.Component{
 
         <div>
         <Button type="submit" variant="outline-primary" value="Submit">Submit</Button>
+        <br></br>
         </div>
 
       </form>
-            </div>
+       </div>
             </Card>
         )
     }

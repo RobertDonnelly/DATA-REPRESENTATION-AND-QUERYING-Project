@@ -23,7 +23,8 @@ class Read extends React.Component {
     <div>
     <Card  border="secondary" bg="dark" text="success">
       <Card.Header>
-        <h1>Hello</h1>
+        <h1>This is each album which has been added to our database so far!</h1>
+        <h3>You can click the title of the albums to listen on Spotify!</h3>
       </Card.Header>
     </Card>               
      <Albums myAlbums={this.state.albums}></Albums>

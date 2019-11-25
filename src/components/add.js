@@ -3,8 +3,9 @@ import axios from 'axios';
 import { watchFile } from 'fs';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
+import {Redirect} from 'react-router-dom';
 
-class Create extends React.Component {
+class Add extends React.Component {
 
   //album title
   //artist
@@ -92,8 +93,10 @@ class Create extends React.Component {
       Publisher:'',
       Play:''
     });
-    this.props.history.push('/albums')
     
+    //this will redirect me to the read component after submit is clicked
+    this.props.history.push('/albums')
+    return  <Redirect  to="/albums" />
   }
 
   render(){
@@ -202,4 +205,4 @@ class Create extends React.Component {
  }
 }
 
-export default Create;
+export default Add;
