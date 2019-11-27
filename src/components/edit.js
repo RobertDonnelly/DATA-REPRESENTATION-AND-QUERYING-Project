@@ -4,7 +4,9 @@ import { isValidES3Identifier } from '@babel/types';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import {Redirect} from 'react-router-dom';
-
+import Container from 'react-bootstrap/Container';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
 
 
 class Edit extends React.Component{
@@ -56,6 +58,17 @@ class Edit extends React.Component{
     this.setState({Play: e.target.value});
   }
 
+  /*
+  state = {
+    redirect: false
+  } 
+   setRedirect = () => {
+    this.setState({
+      redirect: true
+    })
+  }*/
+
+
   handleSubmit(e) {
   
     e.preventDefault();
@@ -86,9 +99,10 @@ class Edit extends React.Component{
           Play:''
         });
         
-        //this will redirect me to the read component after submit is clicked
-        this.props.history.push('/albums')
-        return  <Redirect  to="/albums" />
+        //this was supposed redirect me to the read component after submit is clicked
+      /*  if (this.state.redirect) {
+          return <Redirect to='/albums'/>
+        }*/
       }
 
     componentDidMount(){
@@ -205,11 +219,30 @@ class Edit extends React.Component{
         </div>
 
         <div>
-        <Button type="submit" variant="outline-primary" value="Submit">Submit</Button>
+        <Button type="submit" variant="outline-success" value="Submit" /*onClick={this.setRedirect}*/>Submit</Button>
         <br></br>
         </div>
 
       </form>
+      <Card border="secondary" bg="dark" text="success">  
+     <Container>    
+     <Row>
+
+    <Col xs={6} md={4}>
+    <img width ="80" height="80" 
+     src="https://www.svgrepo.com/show/25153/spotify.svg"></img></Col>
+   
+    <Col xs={6} md={4}>
+    <img width ="80" height="80" 
+     src="https://www.svgrepo.com/show/25161/soundcloud.svg"></img></Col>
+   
+    <Col xs={6} md={4}>
+    <img width ="80" height="80" 
+     src="https://www.svgrepo.com/show/268534/cloud-computing-music.svg"></img></Col>
+
+    </Row>
+     </Container> 
+     </Card> 
        </div>
             </Card>
         )

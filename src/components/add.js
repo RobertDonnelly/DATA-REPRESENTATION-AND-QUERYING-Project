@@ -4,6 +4,9 @@ import { watchFile } from 'fs';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import {Redirect} from 'react-router-dom';
+import Container from 'react-bootstrap/Container';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
 
 class Add extends React.Component {
 
@@ -194,13 +197,35 @@ class Add extends React.Component {
         </div>
 
         <div>
-        <Button type="submit" variant="outline-primary" value="Submit">Submit</Button>
+        <Button type="submit" variant="outline-success" value="Submit">Submit</Button>
         <br></br>
         </div>
 
       </form>
+      <Card border="secondary" bg="dark" text="success">  
+     <Container>    
+     <Row>
+
+    <Col xs={6} md={4}>
+    <img width ="80" height="80" 
+     src="https://www.svgrepo.com/show/25153/spotify.svg"></img></Col>
+   
+    <Col xs={6} md={4}>
+    <img width ="80" height="80" 
+     src="https://www.svgrepo.com/show/25161/soundcloud.svg"></img></Col>
+   
+    <Col xs={6} md={4}>
+    <img width ="80" height="80" 
+     src="https://www.svgrepo.com/show/268534/cloud-computing-music.svg"></img></Col>
+
+    </Row>
+     </Container> 
+     </Card> 
+
     </div>
+
     </Card>
+    
   );
  }
 }

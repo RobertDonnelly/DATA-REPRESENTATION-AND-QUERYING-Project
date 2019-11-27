@@ -2,6 +2,9 @@ import React from 'react';
 import '../App.css';
 import Card from 'react-bootstrap/Card';
 import Carousel from 'react-bootstrap/Carousel';
+import Container from 'react-bootstrap/Container';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
 
 class Content extends React.Component {
  
@@ -42,6 +45,25 @@ class Content extends React.Component {
 </Carousel>
 </Card.Header>
     </Card> 
+    <Card border="secondary" bg="dark" text="success">  
+     <Container>    
+     <Row>
+
+    <Col xs={6} md={4}>
+    <img width ="80" height="80" 
+     src="https://www.svgrepo.com/show/25153/spotify.svg"></img></Col>
+   
+    <Col xs={6} md={4}>
+    <img width ="80" height="80" 
+     src="https://www.svgrepo.com/show/25161/soundcloud.svg"></img></Col>
+   
+    <Col xs={6} md={4}>
+    <img width ="80" height="80" 
+     src="https://www.svgrepo.com/show/268534/cloud-computing-music.svg"></img></Col>
+
+    </Row>
+     </Container> 
+     </Card>     
     </div>
   );
 }

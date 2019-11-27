@@ -24,9 +24,17 @@ class App extends React.Component {
     <div className="App" variant="outline-success">
       <Navbar bg="success" variant="light">
     <Nav  bg="outline-success" variant="outline-success">
+    <img position="right" 
+    width ="50" 
+    height="50"
+    href="/"
+    src="https://www.svgrepo.com/show/284058/radio-music-and-multimedia.svg">
+    </img>
+
       <Nav.Link href="/">Home</Nav.Link>
       <Nav.Link href="/albums">Albums</Nav.Link>
       <Nav.Link href="/add">Add Albums</Nav.Link>
+
     </Nav>
 </Navbar>
 

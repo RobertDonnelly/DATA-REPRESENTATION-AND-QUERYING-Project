@@ -26,8 +26,13 @@ export class AlbumItem extends React.Component {
       </Card>
       <Card border="success" bg="dark" text="white">
         <Card.Header>
-          {/*Link to spotify etc when clicked*/}  
-          <a href={this.props.album.play} className="btn btn-outline-success"><h2>{this.props.album.title}</h2></a>
+        <img width ="50" height="50" 
+        src="https://www.svgrepo.com/show/25153/spotify.svg"></img>
+         
+          <br></br>
+           {/*Link to spotify etc when clicked*/}  
+           <a href={this.props.album.play} className="btn btn-outline-success"><h2>{this.props.album.title}</h2></a>
+          
         </Card.Header>
         <Card.Body>
           <blockquote className="blockquote mb-0">
@@ -39,16 +44,16 @@ export class AlbumItem extends React.Component {
      */}
                 <Carousel.Item>
                   <img
-                    width="300"
-                    height="300"
+                    width="350"
+                    height="350"
                     src={this.props.album.cover}
                     alt="Cover Photo" />
                 </Carousel.Item>
                 <Carousel.Item>
                   {/*roundedCircle give image a round frame for artists photo */}
                   <Image src={this.props.album.artistPhoto} roundedCircle 
-                    height="300"
-                    width="300"
+                    height="350"
+                    width="350"
                     alt="Artist Photo" />
                 </Carousel.Item>
               </Carousel>
