@@ -4,7 +4,6 @@ import Button from 'react-bootstrap/Button';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Image from 'react-bootstrap/Image';
-import Badge from 'react-bootstrap/Badge';
 import Carousel from 'react-bootstrap/Carousel';
 
 

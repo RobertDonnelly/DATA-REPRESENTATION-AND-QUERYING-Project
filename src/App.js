@@ -1,13 +1,9 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 //import components
-import Footer from './components/footer.js';
-import Header from './components/header.js';
 import Content from './components/content.js';
 //import bootstrap
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Button from 'react-bootstrap/Button';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import { Switch,Route,BrowserRouter } from 'react-router-dom'    
@@ -25,8 +21,8 @@ class App extends React.Component {
       <Navbar bg="success" variant="light">
     <Nav  bg="outline-success" variant="outline-success">
     <img position="right" 
-    width ="50" 
-    height="50"
+    width ="55" 
+    height="45"
     href="/"
     src="https://www.svgrepo.com/show/284058/radio-music-and-multimedia.svg">
     </img>

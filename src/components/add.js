@@ -1,9 +1,7 @@
 import React from 'react';
 import axios from 'axios';
-import { watchFile } from 'fs';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
-import {Redirect} from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
@@ -97,9 +95,9 @@ class Add extends React.Component {
       Play:''
     });
     
-    //this will redirect me to the read component after submit is clicked
+    //this will go back to album page but album page needs to be refreshed to dee added/edited data
     this.props.history.push('/albums')
-    return  <Redirect  to="/albums" />
+    //return  <Redirect  to="/albums" />
   }
 
   render(){
