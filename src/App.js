@@ -1,15 +1,16 @@
 import React from 'react';
 import './App.css';
 //import components
-import Content from './components/content.js';
+import Home from './components/home.js';
+import Add from './components/add';
+import Read from './components/read';
+import Edit from './components/edit';
 //import bootstrap
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import { Switch,Route,BrowserRouter } from 'react-router-dom'    
-import Add from './components/add';
-import Read from './components/read';
-import Edit from './components/edit';
+
 
 
 
@@ -35,7 +36,7 @@ class App extends React.Component {
 </Navbar>
 
 <Switch>
-  <Route exact path="/" component={Content}/>
+  <Route exact path="/" component={Home}/>
   <Route path="/add" component={Add}/>
   <Route path="/albums" component={Read}/>
   <Route path="/edit/:id" component={Edit}/>

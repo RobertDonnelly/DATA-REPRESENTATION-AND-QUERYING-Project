@@ -6,7 +6,7 @@ import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 
-class Content extends React.Component {
+class Home extends React.Component {
  
  render(){
   return (
@@ -69,5 +69,5 @@ class Content extends React.Component {
 }
 }
 
-export default Content;
+export default Home;
     
